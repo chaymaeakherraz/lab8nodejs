@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload avec Multer</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Téléversement de fichiers avec Multer</h1>
+
+    <div class="card">
+      <h2>Upload simple</h2>
+
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label>Sélectionnez une image:</label>
+        <input type="file" name="fichier" required>
+        <small>Formats acceptés: JPG, PNG, GIF, WEBP - Max 5 Mo</small>
+        <button type="submit">Téléverser</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Upload multiple</h2>
+
+      <form action="/upload-multiple" method="POST" enctype="multipart/form-data">
+        <label>Sélectionnez plusieurs images:</label>
+        <input type="file" name="fichiers" multiple required>
+        <small>Maximum 3 images - Max 5 Mo chacune</small>
+        <button type="submit">Téléverser</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Upload avec métadonnées</h2>
+
+      <form action="/upload-with-data" method="POST" enctype="multipart/form-data">
+        <label>Titre:</label>
+        <input type="text" name="titre" required>
+
+        <label>Description:</label>
+        <textarea name="description" rows="3"></textarea>
+
+        <label>Image principale:</label>
+        <input type="file" name="image" required>
+
+        <label>Images supplémentaires:</label>
+        <input type="file" name="galerie" multiple>
+
+        <button type="submit">Téléverser</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
